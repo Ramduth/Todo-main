@@ -23,7 +23,7 @@ const Reg = () => {
         if (error) setError(''); 
     };
 
-    const url = "http://localhost:4000"
+    const url = "https://todo-main-backend1.onrender.com"
 
     const validateForm = () => {
         if (!formData.name || !formData.email || !formData.phone || !formData.password) {
