@@ -25,9 +25,11 @@ function Todo() {
     }
   }, []);
 
+  const url = "http://localhost:4000"
+
   const loadTodos = async (user) => {
     try {
-      const response = await axios.get(`http://localhost:4000/${user}`);
+      const response = await axios.get(url +`/${user}`);
       const todos = response.data;
       setTodos(todos.filter(todo => !todo.completedOn)); 
       setCompletedTodos(todos.filter(todo => todo.completedOn)); 
@@ -48,7 +50,7 @@ function Todo() {
     };
 
     try {
-      const response = await axios.post("http://localhost:4000/create", newTodoItem);
+      const response = await axios.post(url + "/create", newTodoItem);
       setTodos([...allTodos, response.data]);
       setNewTitle('');
       setNewDescription('');
@@ -62,7 +64,7 @@ function Todo() {
 
   const handleDeleteTodo = async (todoId) => {
     try {
-      await axios.delete(`http://localhost:4000/${todoId}`);
+      await axios.delete(url + `/${todoId}`);
       setTodos(allTodos.filter(todo => todo._id !== todoId));
     } catch (error) {
       console.error("Error deleting todo:", error);
@@ -80,7 +82,7 @@ function Todo() {
 
     try {
       
-      await axios.put(`http://localhost:4000/${allTodos[index]._id}`, filteredItem);
+      await axios.put( url + `/${allTodos[index]._id}`, filteredItem);
       
       
       setCompletedTodos([...completedTodos, filteredItem]); 
@@ -94,7 +96,7 @@ function Todo() {
   
   const handleDeleteCompletedTodo = async (todoId) => {
     try {
-      await axios.delete(`http://localhost:4000/${todoId}`);
+      await axios.delete(url + `/${todoId}`);
       setCompletedTodos(completedTodos.filter(todo => todo._id !== todoId));
     } catch (error) {
       console.error("Error deleting completed todo:", error);
@@ -116,7 +118,7 @@ function Todo() {
 
   const handleUpdateToDo = async () => {
     try {
-      const response = await axios.put(`http://localhost:4000/${allTodos[currentEdit]._id}`, currentEditedItem);
+      const response = await axios.put( url + `/${allTodos[currentEdit]._id}`, currentEditedItem);
       const updatedTodos = [...allTodos];
       updatedTodos[currentEdit] = response.data;
       setTodos(updatedTodos);
