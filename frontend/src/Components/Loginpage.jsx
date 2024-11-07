@@ -19,7 +19,7 @@ const handleChange = (e) => {
         setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
     };
 
-   const url = "https://todo-main-backend1.onrender.com"
+   const url = "https://todo-main-backend2.onrender.com"
  const validateForm = () => {
     let formIsValid = true;
         let errorMessages = {};
