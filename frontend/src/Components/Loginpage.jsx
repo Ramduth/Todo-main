@@ -19,6 +19,7 @@ const handleChange = (e) => {
         setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
     };
 
+   const url = "http://localhost:4000"
  const validateForm = () => {
     let formIsValid = true;
         let errorMessages = {};
@@ -38,7 +39,7 @@ e.preventDefault();
 if (!validateForm()) return;
         setIsLoading(true);
  try {
-const result = await axios.post("http://localhost:4000/login", formData);
+const result = await axios.post(url + "/login", formData);
  if (result.data.status === 200) {
    localStorage.setItem('username', formData.email);
  navigate("/todo");

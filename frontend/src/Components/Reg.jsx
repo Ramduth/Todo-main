@@ -23,6 +23,8 @@ const Reg = () => {
         if (error) setError(''); 
     };
 
+    const url = "http://localhost:4000"
+
     const validateForm = () => {
         if (!formData.name || !formData.email || !formData.phone || !formData.password) {
             setError('Please fill in all fields');
@@ -50,7 +52,7 @@ const Reg = () => {
 
         setIsLoading(true);
         try {
-            await axios.post("http://localhost:4000/userreg", formData);
+            await axios.post(url + "/userreg", formData);
             
             navigate('/');
         } catch (err) {
