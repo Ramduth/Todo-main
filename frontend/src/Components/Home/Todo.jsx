@@ -25,7 +25,7 @@ function Todo() {
     }
   }, []);
 
-  const url = "http://localhost:4000"
+  const url = "https://todo-main-backend2.onrender.com"
 
   const loadTodos = async (user) => {
     try {
