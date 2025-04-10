@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loginpage from './Components/Loginpage';
-import Reg from './Components/Reg';
-import Todo from './Components/Home/Todo';
-
+import Loginpage from './components/Loginpage';
+import Reg from './components/Reg';
+import Todo from './components/Home/Todo';
 function App() {
   return (
     <BrowserRouter>
